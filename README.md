@@ -3,7 +3,7 @@
 ## Sub Tasks
 * Create python script to merge faulty and baseline data with/without labels. Script should be able to take a merge window parameter. MW 
 will be number of samples in a slot. Final data will be merged dataset with having MW samples from each dataset file. It should be 
-shuffles around MW as well. Output should be two files: with label and without label.
+shuffles around MW as well. Output should be two files: with label and without label - chandhya
 * Setup tsdb(influxdb) - **Raja**
 * Create python script to read data without/with labels and store in influxdb - **Raja**
 * Create python script to read a sequence of data in random TW chunks from influxdb.
