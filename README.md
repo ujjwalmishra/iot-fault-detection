@@ -11,6 +11,6 @@ shuffles around MW as well. Output should be two files: with label and without l
 * Create python script which takes some part of labeled data and feed it to a neural network classifier. It should be parameterized with
 percent of data to read. This is training
 * Create python script which prepared data for the classifier
-* Setup tensor flow with a neural network classifier
+* Setup tensor flow with a neural network classifier - **Jeremy**
 * Create python script to store detection results to influxdb by classifier
 * Create python script to train new classifiers by new data from labeled dataset
