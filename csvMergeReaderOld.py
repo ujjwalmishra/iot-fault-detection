@@ -8,6 +8,7 @@ import csv
 import itertools
 import glob
 import random
+import datetime
 
 entries = []
 bwstart = 0
@@ -20,34 +21,50 @@ for x in range(100):
 	if rand == 1:
 		with open('./csvFiles/baseline_1.mat.csv', 'r') as f:
 			mycsv = csv.reader(f)
+			current_timestamp = datetime.datetime.now()
 			for row in itertools.islice(mycsv, bwstart,bwend):
 				row.append(270) #load
 				row.append(25)  #rate
+				row.append(current_timestamp.utcnow())			
+				#increment timestamp
+				current_timestamp = current_timestamp + datetime.timedelta(seconds=1/97656)
 				row.append(0)
 				entries.append(row[1:])
 				
 	if rand == 3:
 		with open('./csvFiles/InnerRaceFault_vload_1.mat.csv', 'r') as f:
 			mycsv = csv.reader(f)
+			current_timestamp = datetime.datetime.now()
 			for row in itertools.islice(mycsv, bwstart,bwend):
 				row.append(0) #load
 				row.append(25)  #rate
+				row.append(current_timestamp.utcnow())			
+				#increment timestamp
+				current_timestamp = current_timestamp + datetime.timedelta(seconds=1/48828)
 				row.append(1)
 				entries.append(row[1:])
 	if rand == 4:
 		with open('./csvFiles/OuterRaceFault_1.mat.csv', 'r') as f:
 			mycsv = csv.reader(f)
+			current_timestamp = datetime.datetime.now()
 			for row in itertools.islice(mycsv, bwstart,bwend):
 				row.append(270) #load
 				row.append(25)  #rate
+				row.append(current_timestamp.utcnow())			
+				#increment timestamp
+				current_timestamp = current_timestamp + datetime.timedelta(seconds=1/97656)				
 				row.append(2)
 				entries.append(row[1:])
 	if rand == 2:
 		with open('./csvFiles/OuterRaceFault_vload_1.mat.csv', 'r') as f:
 			mycsv = csv.reader(f)
+			current_timestamp = datetime.datetime.now()
 			for row in itertools.islice(mycsv, bwstart,bwend):
 				row.append(25) #load
 				row.append(25)  #rate
+				row.append(current_timestamp.utcnow())			
+				#increment timestamp
+				current_timestamp = current_timestamp + datetime.timedelta(seconds=1/48828)				
 				row.append(2)
 				entries.append(row[1:])
 
