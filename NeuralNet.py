@@ -91,11 +91,11 @@ test_labels = np.array(test_labels)
 
 
 
-BATCH_SIZE = 10
-EPOCHS = 550
+BATCH_SIZE = 5
+EPOCHS = 10000
 
 neuralNet = Sequential([
-    Dense(16, input_shape=(3,), activation='relu'), # This is the input layer
+    Dense(16, input_shape=(1,), activation='relu'), # This is the input layer
     Dense(32, activation='relu'),                   # This is the first hidden layer
     Dense(3, activation='softmax'),                 # This is the output layer
     ])
@@ -112,25 +112,25 @@ scaled_test_sample_row_3 = scaler.fit_transform((test_samples_row_3).reshape(-1,
 neuralNet.compile(Adam(lr=0.0001), loss='sparse_categorical_crossentropy', metrics=['accuracy'])
 
 for i in scaled_train_sample_row_1:
-    train_samples = str(scaled_train_sample_row_1) + str(scaled_train_sample_row_2) + str(scaled_train_sample_row_3)
+    train_samples = scaled_train_sample_row_1 + scaled_train_sample_row_2 + scaled_train_sample_row_3
 
 for i in scaled_test_sample_row_1:
-    test_samples = str(scaled_test_sample_row_1) + str(scaled_test_sample_row_2) + str(scaled_test_sample_row_3)
+    test_samples = scaled_test_sample_row_1 + scaled_test_sample_row_2 + scaled_test_sample_row_3
 
 
 #valid_set = [(sample, value),(sample, value),(sample, value),(sample, value)]
 #validation_split = 0.1
 neuralNet.fit(train_samples, train_labels, batch_size=BATCH_SIZE, epochs=EPOCHS, shuffle=True, verbose=2)
 
-predictions = neuralNet.predict(test_samples, batch_size=10, verbose=0)
+predictions = neuralNet.predict(test_samples, batch_size=BATCH_SIZE, verbose=0)
 
-rounded_prediction = neuralNet.predict_classes(test_samples, batch_size=10, verbose=0)
+rounded_prediction = neuralNet.predict_classes(test_samples, batch_size=BATCH_SIZE, verbose=0)
 
 correct = 0
 incorrect = 0
 
-for i in range(210):
-    print("Prediction = " + str(rounded_prediction[i]) + " True Value = " + str(test_labels[i]))
+for i in range(10000):
+    #print("Prediction = " + str(rounded_prediction[i]) + " True Value = " + str(test_labels[i]))
     if(rounded_prediction[i] == test_labels[i]):
         correct = correct + 1
     else:
