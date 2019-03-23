@@ -5,6 +5,7 @@
 will be number of samples in a slot. Final data will be merged dataset with having MW samples from each dataset file. It should be 
 shuffles around MW as well. Output should be two files: with label and without label - **chandhya**
 * Setup tsdb(influxdb) - **Raja**
+* Create python script to write data to tsdb - **Ujjawal**
 * Create python script to read data without/with labels and store in influxdb - **Raja**
 * Create python script to read a sequence of data in random TW chunks from influxdb.
 * Create a python script which takes some data read form influxdb and feed to a selected classifier. This is prediction.
