@@ -32,16 +32,16 @@ with open('BaseLine-Faulty-merged.csv', 'r') as csvfile:
     readCSV = csv.reader(csvfile, delimiter=',')
     for row in readCSV:
         counter = counter + 1
-        if(counter < 40000):
+        if(counter < 100000):
             train_samples_row_1.append(row[0])
             train_samples_row_2.append(row[1])
             train_samples_row_3.append(row[2])
-            train_labels.append(row[3])
+            train_labels.append(row[4])
         else:
             test_samples_row_1.append(row[0])
             test_samples_row_2.append(row[1])
             test_samples_row_3.append(row[2])
-            test_labels.append(row[3])
+            test_labels.append(row[4])
 
 #for i in range(5000):
 #    random_younger = randint(13,64)
@@ -91,8 +91,8 @@ test_labels = np.array(test_labels)
 
 
 
-BATCH_SIZE = 5
-EPOCHS = 10000
+BATCH_SIZE = 500
+EPOCHS = 100
 
 neuralNet = Sequential([
     Dense(16, input_shape=(1,), activation='relu'), # This is the input layer
@@ -120,7 +120,7 @@ for i in scaled_test_sample_row_1:
 
 #valid_set = [(sample, value),(sample, value),(sample, value),(sample, value)]
 #validation_split = 0.1
-neuralNet.fit(train_samples, train_labels, batch_size=BATCH_SIZE, epochs=EPOCHS, shuffle=True, verbose=2)
+neuralNet.fit(train_samples, train_labels, batch_size=BATCH_SIZE, epochs=EPOCHS, shuffle=False, verbose=2)
 
 predictions = neuralNet.predict(test_samples, batch_size=BATCH_SIZE, verbose=0)
 
@@ -130,10 +130,12 @@ correct = 0
 incorrect = 0
 
 for i in range(10000):
-    #print("Prediction = " + str(rounded_prediction[i]) + " True Value = " + str(test_labels[i]))
-    if(rounded_prediction[i] == test_labels[i]):
+    print("Prediction = " + str(rounded_prediction[i]) + " True Value = " + str(test_labels[i]))
+    if(str(rounded_prediction[i]) == str(test_labels[i])):
+        print("correct")
         correct = correct + 1
     else:
+        print("incorrect")
         incorrect = incorrect + 1
 
 print("Correct", correct, "Incorrect", incorrect)

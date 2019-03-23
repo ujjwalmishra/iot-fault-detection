@@ -16,7 +16,7 @@ bwend = 500
 files = os.listdir("./csvFiles/")
 
 
-for x in range(100):
+for x in range(400):
 	rand = random.randint(1,4)
 	if rand == 1:
 		with open('./csvFiles/baseline_1.mat.csv', 'r') as f:
