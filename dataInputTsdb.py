@@ -2,19 +2,6 @@ from influxdb import InfluxDBClient
 import csv
 import json
 
-json_body = [
-    {
-        "measurement": "iot_fault_data",
-        "tags": {
-            "host": "ujjwal"
-        },
-        "time": "2009-11-10T23:00:00Z",
-        "fields": {
-            "value": 0.64,
-            "value2": 0.56
-        }
-    }
-]
 
 client = InfluxDBClient('localhost', 8086, 'root', 'root', 'complete_data')
 

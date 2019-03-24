@@ -17,20 +17,6 @@ import itertools
 import pandas as pd
 from tsdbDataReader import *
 
-# class DataObject:
-#     def __init__(self, train_labels, train_samples, train_samples_row_1,train_samples_row_2,train_samples_row_3
-#      , test_samples, test_samples_row_1, test_samples_row_2, test_samples_row_3, test_labels):
-#         self.train_labels = []
-#         self.train_samples = []
-#         self.train_samples_row_1 = []
-#         self.train_samples_row_2 = []
-#         self.train_samples_row_3 = []
-#         self.test_samples = []
-#         self.test_samples_row_1 = []
-#         self.test_samples_row_2 = []
-#         self.test_samples_row_3 = []
-#         self.test_labels = []
-
 
 def getData():
     print("reading data")
@@ -80,47 +66,6 @@ def prepareData(shuffledData):
 
     return train_labels, test_labels, train_samples_row_1, train_samples_row_2, train_samples_row_3,test_samples_row_1,test_samples_row_2,test_samples_row_3
 
-# data = getData()
-
-# prepareData(data)
-
-#for i in range(5000):
-#    random_younger = randint(13,64)
-#    train_samples.append(random_younger)
-#    train_labels.append(0)
-
-#    random_older = randint(65,100)
-#    train_samples.append(random_older)
-#    train_labels.append(1)
-
-#for i in range(1000):
-#    random_younger = randint(13,64)
-#    train_samples.append(random_younger)
-#    train_labels.append(1)
-
-#    random_older = randint(65,100)
-#    train_samples.append(random_older)
-#    train_labels.append(0)
-
-
-
-#for i in range(10):
-#    random_younger = randint(13,64)
-#    test_samples.append(random_younger)
-#    test_labels.append(1)
-
-#    random_older = randint(65,100)
-#    test_samples.append(random_older)
-#    test_labels.append(0)
-
-#for i in range(200):
-#    random_younger = randint(13,64)
-#    test_samples.append(random_younger)
-#    test_labels.append(0)
-
-#    random_older = randint(65,100)
-#    test_samples.append(random_older)
-#    test_labels.append(1)
 
 def transFormData():
     print("transforming data")
