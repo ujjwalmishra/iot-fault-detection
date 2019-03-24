@@ -7,7 +7,7 @@ shuffles around MW as well. Output should be two files: with label and without l
 * Setup tsdb(influxdb) - **Raja**
 * Create python script to write data to tsdb - **Ujjawal**
 * Create python script to read data without/with labels and store in influxdb - **Raja**
-* Create python script to read a sequence of data in random TW chunks from influxdb.
+* Create python script to read a sequence of data in random TW chunks from influxdb. - **Ujjawal**
 * Create a python script which takes some data read form influxdb and feed to a selected classifier. This is prediction.
 * Create python script which takes some part of labeled data and feed it to a neural network classifier. It should be parameterized with
 percent of data to read. This is training - **Ujjawal**
