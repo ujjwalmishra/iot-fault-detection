@@ -29,6 +29,6 @@ def shuffleData(data):
 
 def readData():
     data = client.query('select load,rate,gs,label from iot_fault_data;')
-
+    client.close()
     return data.raw['series'][0]['values']
 

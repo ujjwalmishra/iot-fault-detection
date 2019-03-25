@@ -4,14 +4,14 @@ import json
 
 
 client = InfluxDBClient('localhost', 8086, 'root', 'root', 'complete_data')
-
-# client.create_database('complete_data')
+client.drop_database('complete_data')
+client.create_database('complete_data')
 
 buffer_length = 4000
 
 buffered_payload = []
 
-def readData():
+def readWriteData():
     with open('./BaseLine-Faulty-merged.csv', 'r') as f:
         iot_data = csv.reader(f)
         row_count = 0
@@ -35,7 +35,7 @@ def readData():
                 row_count = 0 
                 buffered_payload = []
 
-readData()
+readWriteData()
 
 
 
