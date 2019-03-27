@@ -144,27 +144,27 @@ def predictionOutput(rounded_prediction, test_labels):
 
 predictionOutput(rounded_prediction, test_labels)
 
-# def reTrainModel():
-#     train_samples, test_samples, train_labels, test_labels = transFormData()
+def reTrainModel():
+    train_samples, test_samples, train_labels, test_labels = transFormData()
 
-#     #valid_set = [(sample, value),(sample, value),(sample, value),(sample, value)]
-#     #validation_split = 0.1
-#     print("-----------------Fitting again-------------------")
+    #valid_set = [(sample, value),(sample, value),(sample, value),(sample, value)]
+    #validation_split = 0.1
+    print("-----------------Fitting again-------------------")
 
-#     neuralNetR = load_model('./saved_model.h5')
-#     # neuralNet.load("./saved_model.h5")
+    neuralNetR = load_model('./saved_model.h5')
+    # neuralNet.load("./saved_model.h5")
 
-#     neuralNetR.fit(train_samples, train_labels, batch_size=BATCH_SIZE, epochs=EPOCHS, shuffle=False, verbose=2)
+    neuralNetR.fit(train_samples, train_labels, batch_size=BATCH_SIZE, epochs=EPOCHS, shuffle=False, verbose=2)
 
-#     predictions = neuralNetR.predict(test_samples, batch_size=BATCH_SIZE, verbose=0)
+    predictions = neuralNetR.predict(test_samples, batch_size=BATCH_SIZE, verbose=0)
 
-#     rounded_prediction = neuralNetR.predict_classes(test_samples, batch_size=BATCH_SIZE, verbose=0)
+    rounded_prediction = neuralNetR.predict_classes(test_samples, batch_size=BATCH_SIZE, verbose=0)
 
-#     predictionOutput(rounded_prediction, test_labels)
+    predictionOutput(rounded_prediction, test_labels)
 
-#     neuralNetR.save("./saved_model.h5")
+    neuralNetR.save("./saved_model.h5")
 
-# for i in range(10):
-#     reTrainModel()
+for i in range(10):
+    reTrainModel()
 
 getResult()
