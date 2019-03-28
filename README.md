@@ -14,5 +14,5 @@ percent of data to read. This is training - **Ujjawal**
 * Create python script which prepared data for the classifier - **Ujjawal**
 * Setup tensor flow with a neural network classifier - **Jeremy**
 * Create python script to store detection results to influxdb by classifier - **Ujjawal**
-* Create visualization from original and detected faulty data
+* Create visualization from original and detected faulty data - **Chandhya**
 * Create python script to train new classifiers by new data from labeled dataset - **Ujjawal**
